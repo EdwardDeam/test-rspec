@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  belongs_to :store
+
   validates :name, presence: true, length: { in: 5..29 }
   validates :category, presence: true, length: { minimum: 5, maximum: 24}
   validates :price, presence: true, numericality: { greater_than: 0 }

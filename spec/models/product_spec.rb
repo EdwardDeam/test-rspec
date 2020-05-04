@@ -1,7 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  subject { Product.new(name: 'Test Product', category: 'Widget', price: 500) }
+  let(:store) { Store.new }
+  subject { Product.new(name: 'Test Product', category: 'Widget', price: 500, store: store) }
+
+  context 'associations' do
+    it 'belongs to Store' do
+      relation = Product.reflect_on_association(:store) # Association name
+      expect(relation.macro).to eql(:belongs_to) # expect type
+    end
+  end
 
   context 'validations' do
     it 'is valid with valid attributes' do
