@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use RSpec for test framework
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do

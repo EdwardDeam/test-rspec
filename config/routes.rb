@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :products, only: [:create, :update]
+  resources :products, except: [:destroy]
+
+  root to: 'products#index'
 end

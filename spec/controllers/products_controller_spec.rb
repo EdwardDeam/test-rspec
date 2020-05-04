@@ -19,4 +19,21 @@ RSpec.describe ProductsController do
       expect(response).to render_template(:edit)
     end
   end
+
+  context '#index' do
+    it 'renders the index template' do
+      get :index
+
+      expect(response).to render_template(:index)
+    end
+
+    it 'assigns @products' do
+      store = Store.new
+      product = Product.create(name: 'Test Product', category: 'Abcdef', price: 1000, store: store)
+
+      get :index
+
+      expect(assigns(:products)).to eq([product])
+    end
+  end
 end
