@@ -7,7 +7,8 @@ RSpec.feature 'User submits a product' do
     product_category = 'Widget'
     product_price = 1000
     Store.create(name: 'Test Store')
-
+    user = User.create(username: 'estet', email: 'sdfa@saf.com', password: '123456')
+    login_as(user, scope: :user)
     # Capybara instructions
     visit root_path
     click_on 'Add a new product'
