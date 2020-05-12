@@ -1,1 +1,6 @@
 <%= link_to 'Add a new product', new_product_path %>
+<%= link_to 'Sign Up', new_user_registration_path %>
+
+<% if user_signed_in? %>
+  <%= current_user.username %>
+<% end %>
